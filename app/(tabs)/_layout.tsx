@@ -7,6 +7,9 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { AntDesign, Feather, FontAwesome5 } from '@expo/vector-icons';
+
+Feather
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -18,6 +21,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
+        tabBarShowLabel: false,
         tabBarStyle: Platform.select({
           ios: {
             // Use a transparent background on iOS to show the blur effect
@@ -29,25 +33,38 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIconStyle: {
+            flex: 1
+          },
+          tabBarIcon: ({ color }) => <AntDesign size={24} name="user" color={color} />,
         }}
       />
       <Tabs.Screen
         name="matches"
         options={{
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIconStyle: {
+            flex: 1
+          },
+          tabBarIcon: ({ color }) => <AntDesign size={24} name="hearto" color={color} />,
         }}
       />
       <Tabs.Screen
         name="favorites"
         options={{
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIconStyle: {
+            flex: 1
+          },
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => <Feather size={24} name="bookmark" color={color} />,
         }}
       />
       <Tabs.Screen
         name="chats"
         options={{
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIconStyle: {
+            flex: 1
+          },
+          tabBarIcon: ({ color }) => <FontAwesome5 size={22} name="paper-plane" color={color} />,
         }}
       />
     </Tabs>
